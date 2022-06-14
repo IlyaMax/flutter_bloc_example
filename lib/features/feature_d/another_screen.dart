@@ -7,7 +7,7 @@ class AnotherScreenRoute extends MaterialPageRoute<void> {
       : super(builder: (context) {
           return BlocProvider(
             create: (context) => RandomIntLoaderBloc(),
-            child: AnotherScreen(),
+            child: const AnotherScreen(),
           );
         });
 }
@@ -25,7 +25,7 @@ class AnotherScreen extends StatelessWidget {
           ElevatedButton(
             onPressed: () =>
                 BlocProvider.of<RandomIntLoaderBloc>(context).add(Load()),
-            child: Text('load'),
+            child: const Text('load'),
           ),
           Center(
             child: BlocBuilder<RandomIntLoaderBloc, RandomIntLoaderState>(
@@ -35,7 +35,7 @@ class AnotherScreen extends StatelessWidget {
                 } else if (state is SuccessState) {
                   return Text(
                     state.item.toString(),
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   );
                 }
                 return const SizedBox();
