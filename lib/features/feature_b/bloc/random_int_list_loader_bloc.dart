@@ -45,6 +45,9 @@ class RandomIntListLoaderBloc
     for (var sub in _blocSubscriptions) {
       sub.cancel();
     }
+    for (var bloc in _blocs) {
+      bloc.close();
+    }
     return super.close();
   }
 }
